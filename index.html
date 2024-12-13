@@ -31,6 +31,39 @@
             border-radius: 50%;
             margin-bottom: 15px;
         }
+
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                transform: translateX(-100%);
+            }
+
+            .sidebar.show {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .navbar {
+                margin-left: 0;
+            }
+
+            .navbar-toggler {
+                display: block;
+            }
+        }
+
+        /* For larger screens */
+        @media (min-width: 769px) {
+            .navbar-toggler {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
