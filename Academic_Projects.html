@@ -118,7 +118,7 @@
              <h3>Visualizing Photocatalysis</h3>
              <p>One the more rewarding parts of my PhD work was developing code to visualize the processes I was simulating. DFT calculations are just numbers on a screen so I enjoyed writing scripts to convert those to more digestible forms.</p>
              <h5>-Electric Field-</h5>
-             <p>To excite our system we use an oscillating electric field which represents light. The following animation shows a field with propagating over a time of ~125 fs as an example.</p>
+             <p>To excite our system we use an oscillating electric field which represents light. The following animation shows a field propagating over a time of ~125 fs as an example.</p>
              <div class="container">
                 <canvas id="fieldCanvas" width="800" height="200"></canvas>
                 <canvas id="graphCanvas" width="800" height="200"></canvas>
@@ -126,7 +126,7 @@
             </div>
             <script src="scripts/efield.js">
             </script>
-            <p>Here is the <a href="https://github.com/Connor-Herring/siesta_tdap_scripts/blob/main/efield.py" target="_blank">code</a> to visualize these fields.</p>
+            <p>Here is the <a href="https://github.com/Connor-Herring/siesta_tdap_scripts/blob/main/efield.py" target="_blank">code</a> for visualization.</p>
              <h5>-Charge Transfer-</h5>
              <p>When a plasmonic nanoparticle is excited by an external field the generated surface plasmon may transfer charge to an adsorbed molecule by hot carriers. Visualizing areas of charge depletion and accumulation is useful for understanding this process. I wrote a serious of <a href="https://github.com/Connor-Herring/siesta_tdap_scripts/tree/main/color_by_charge" target="_blank">scripts</a> to extract the charge data from a RT-TDDFT calculation and write it in format readable by VMD. VMD can then render the system frame by frame to create a movie like the following.</p>
              <video autoplay loop muted width="500" height="300" src="movies/output.mp4"></video>
