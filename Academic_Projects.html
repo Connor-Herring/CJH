@@ -65,6 +65,21 @@
             margin-bottom: 10%; /* Adjust spacing */
         }
     }
+    .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        canvas {
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px 15px;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
@@ -102,8 +117,18 @@
         <section id="home">
              <h3>Visualizing Photocatalysis</h3>
              <p>One the more rewarding parts of my PhD work was developing code to visualize the processes I was simulating. DFT calculations are just numbers on a screen so I enjoyed writing scripts to convert those to more digestible forms.</p>
+             <h5>-Electric Field-</h5>
+             <p>To excite our system we use an oscillating electric field which represents light. The following animation shows a field with propagating over a time of ~125 fs as an example.</p>
+             <div class="container">
+                <canvas id="fieldCanvas" width="800" height="200"></canvas>
+                <canvas id="graphCanvas" width="800" height="200"></canvas>
+                <button id="restartButton">Restart</button>
+            </div>
+            <script src="scripts/efield.js">
+            </script>
+            <p>Here is the <a href="https://github.com/Connor-Herring/siesta_tdap_scripts/blob/main/efield.py" target="_blank">code</a> to visualize these fields.</p>
              <h5>-Charge Transfer-</h5>
-             <p>When a plasmonic nanoparticle is excited by an external field the generated surface plasmon my transfer charge to an adsorbed molecule by hot carriers. Visualizing areas of charge depletion and accumulation is useful for understanding this process. I wrote a serious of <a href="https://github.com/Connor-Herring/siesta_tdap_scripts/tree/main/color_by_charge" target="_blank">scripts</a> to extract the charge data from a RT-TDDFT calculation and write it in format readable by VMD. VMD can then render the system frame by frame to create a movie like the following.</p>
+             <p>When a plasmonic nanoparticle is excited by an external field the generated surface plasmon may transfer charge to an adsorbed molecule by hot carriers. Visualizing areas of charge depletion and accumulation is useful for understanding this process. I wrote a serious of <a href="https://github.com/Connor-Herring/siesta_tdap_scripts/tree/main/color_by_charge" target="_blank">scripts</a> to extract the charge data from a RT-TDDFT calculation and write it in format readable by VMD. VMD can then render the system frame by frame to create a movie like the following.</p>
              <video autoplay loop muted width="500" height="300" src="movies/output.mp4"></video>
              <p>This shows a Cu nanoparticle with a Ru atom in the center of the top layer and a nitrogen molecule adsorbed on the surface. As an electric field is applied we can observed where charge moves in the system (red indicates negative charge accumulation and blue is positive).</p>
 
@@ -116,7 +141,8 @@
 
             <h3>Machine Learning for Dye Sensitized Solar Cells</h3>
             <p>This is an ongoing project which attempts to both predict the power conversion efficiency of DSSCs and generate novel dye structures for use in these devices. Right now I am trying to represent the dye structures as graphs. </p>
-          </video>
+             <p>This is an ongoing project which attempts to both predict the power conversion efficiency of DSSCs and generate novel dye structures for use in these devices. Right now I am trying to represent the dye structures as graphs. For example, this SMILES string "C(#N)C(C(=O)O)=CC=1SC(=CC1)C=1SC(=CC1)C1=C(N(C2=CC=CC=C12)C1=CC=C2C=3C=CC=CC3C(C2=C1)(C)C)C1=CC=CC=C1" looks like the following:</p>
+            <img src="images/graph.png" style="width:500px;height:500px;">
         </section>
 
     </div>
