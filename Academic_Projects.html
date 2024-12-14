@@ -103,8 +103,9 @@
              <h3>Visualizing Photocatalysis</h3>
              <p>One the more rewarding parts of my PhD work was developing code to visualize the processes I was simulating. DFT calculations are just numbers on a screen so I enjoyed writing scripts to convert those to more digestible forms.</p>
              <h5>-Charge Transfer-</h5>
-             <p>When a plasmonic nanoparticle is excited by an external field the generated surface plasmon my transfer charge to an adsorbed molecule by hot carriers. Visualizing areas of charge depletion and accumulation is useful for understanding this process. I wrote a serious of scripts to extract the charge data from a RT-TDDFT calculation and write it in format readable by VMD. VMD can then render the system frame by frame to create a movie like the following.</p>
-             <video autoplay loop muted width="500" height="300" src=""></video>
+             <p>When a plasmonic nanoparticle is excited by an external field the generated surface plasmon my transfer charge to an adsorbed molecule by hot carriers. Visualizing areas of charge depletion and accumulation is useful for understanding this process. I wrote a serious of <a href="https://github.com/Connor-Herring/siesta_tdap_scripts/tree/main/color_by_charge" target="_blank">scripts</a> to extract the charge data from a RT-TDDFT calculation and write it in format readable by VMD. VMD can then render the system frame by frame to create a movie like the following.</p>
+             <video autoplay loop muted width="500" height="300" src="movies/output.mp4"></video>
+             <p>This shows a Cu nanoparticle with a Ru atom in the center of the top layer and a nitrogen molecule adsorbed on the surface. As an electric field is applied we can observed where charge moves in the system (red indicates negative charge accumulation and blue is positive).</p>
 
             <h5>-Near-field Enhancement-</h5>
             <p>In addition to hot-carrier generation, plasmonic nanoparticles are known to enhance the local electric field at the surface on the material. I wrote some <a href="https://github.com/Connor-Herring/siesta_tdap_scripts/blob/main/pontential_to_efield.py" target="_blank">code</a> to visualize this enhance field.</p>
