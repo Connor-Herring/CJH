@@ -87,7 +87,7 @@
     <div class="sidebar">
         <img src="images/headshot.jpg" alt="Connor Herring" class="profile-picture">
         <h3>Connor Herring</h3>
-        <p>PhD | Chemical and Biomolecular Engineering | Comptational Chemist</p>
+        <p>PhD | Chemical and Biomolecular Engineering | Computational Chemist</p>
         <ul class="list-unstyled">
             <li><a href="https://www.linkedin.com/in/connor-herring-aa91a7b7/" target="_blank">LinkedIn</a></li>
             <li><a href="https://github.com/Connor-Herring" target="_blank">GitHub</a></li>
@@ -126,7 +126,7 @@
             </div>
             <script src="scripts/efield.js">
             </script>
-            <p>Here is the <a href="https://github.com/Connor-Herring/siesta_tdap_scripts/blob/main/efield.py" target="_blank">code</a> for visualization.</p>
+            <p>Here is the <a href="https://github.com/Connor-Herring/siesta_tdap_scripts/blob/main/efield.py" target="_blank">code</a> for visualization and here is an <a href="efield.html" target="_self">interactive page</a>.</p>
              <h5>-Charge Transfer-</h5>
              <p>When a plasmonic nanoparticle is excited by an external field the generated surface plasmon may transfer charge to an adsorbed molecule by hot carriers. Visualizing areas of charge depletion and accumulation is useful for understanding this process. I wrote a serious of <a href="https://github.com/Connor-Herring/siesta_tdap_scripts/tree/main/color_by_charge" target="_blank">scripts</a> to extract the charge data from a RT-TDDFT calculation and write it in format readable by VMD. VMD can then render the system frame by frame to create a movie like the following.</p>
              <video autoplay loop muted width="500" height="300" src="movies/output.mp4"></video>
@@ -140,9 +140,13 @@
             <p>In this case I show the time-varying enhanced field at a fixed plane on the surface of the nanoparticle. Again the field is observed to be largest on the sides and edges. These insights may be useful for the rational design of plasmonic photocatalysts and only arise by being able to visualize the structures.</p>
 
             <h3>Machine Learning for Dye Sensitized Solar Cells</h3>
-            <p>This is an ongoing project which attempts to both predict the power conversion efficiency of DSSCs and generate novel dye structures for use in these devices. Right now I am trying to represent the dye structures as graphs. </p>
-             <p>This is an ongoing project which attempts to both predict the power conversion efficiency of DSSCs and generate novel dye structures for use in these devices. Right now I am trying to represent the dye structures as graphs. For example, this SMILES string "C(#N)C(C(=O)O)=CC=1SC(=CC1)C=1SC(=CC1)C1=C(N(C2=CC=CC=C12)C1=CC=C2C=3C=CC=CC3C(C2=C1)(C)C)C1=CC=CC=C1" looks like the following:</p>
-            <img src="images/graph.png" style="width:500px;height:500px;">
+             <p>This is an ongoing project which attempts to both predict the power conversion efficiency of DSSCs and generate novel dye structures for use in these devices. Right now I am trying to represent the dye structures as graphs and use LLMs to predict new structures. For example, this SMILES string "C(#N)C(C(=O)O)=CC=1SC(=CC1)C=1SC(=CC1)C1=C(N(C2=CC=CC=C12)C1=CC=C2C=3C=CC=CC3C(C2=C1)(C)C)C1=CC=CC=C1" looks like the following:</p>
+            <img src="images/graph.png" style="width:500px;">
+
+            <h3>Orbital Overlaps</h3>
+            This project makes use of the <a href="https://sisl.readthedocs.io/en/v0.14.2/index.html" target="_blank">sisl</a> tight-binding DFT library to calculate the overlap matrix for orbitals in our simulation. From this matrix we were able to extract the overlap between adsrobates and catalyst surface atoms. We have found these overlaps correlate with photocatalytic activity. 
+            <img src="images/overlaps.png" style="width:800px;">
+            <p>This image simplifies but describes the idea. We pull out the overlap values corresponinding to nitrogen and Ru from the full overlap matrix and are able to establish certain trends.</p>
         </section>
 
     </div>
