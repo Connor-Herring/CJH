@@ -17,7 +17,7 @@ function setup() {
   // Initialize positions, velocities, and accelerations in setup
   positions = [
     createVector(random(50,100), 150, 0),
-    createVector(random(-150,-50), random(0, 150), 0),
+    createVector(random(-250,-50), random(0, 150), 0),
     createVector(random(-50,50), random(-150,0), 0)
   ];
 
