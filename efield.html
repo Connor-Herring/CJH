@@ -39,11 +39,6 @@
         <label>t₀: <input type="number" id="t0" value="65" step="0.1"></label>
         <button onclick="restartAnimation()">Restart</button>
     </div>
-    <div class="main-content">
-        <section>
-            <a href="Academic_Projects.html" target="_self">return</a>
-        </section>
-    </div>
     <script>
         const fieldCanvas = document.getElementById('fieldCanvas');
         const graphCanvas = document.getElementById('graphCanvas');
@@ -160,5 +155,18 @@
 
         restartAnimation();
     </script>
+
+    <div>
+    <p>The electric field is given by:</p>
+    <div>
+        $$E(t) = \left( \frac{G}{\sqrt{2\pi}\sigma} e^{-\frac{(t - t_0)^2}{2\sigma^2}} + H \Theta(t - t_0) \right) \cdot \left( A \sin(\omega (t - t_0) - \phi) + C \right)$$
+    </div>
+</div>
+<div class="main-content">
+        <section>
+            <a href="Academic_Projects.html" target="_self">return to website</a>
+        </section>
+    </div>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
 </html>
