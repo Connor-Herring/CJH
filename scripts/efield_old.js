@@ -1,6 +1,8 @@
 function initializeOscillatingField() {
     const fieldCanvas = document.getElementById('fieldCanvas');
-    const graphCtx = fieldCanvas.getContext('2d');
+    const graphCanvas = document.getElementById('graphCanvas');
+    const fieldCtx = fieldCanvas.getContext('2d');
+    const graphCtx = graphCanvas.getContext('2d');
 
     // Hardcoded parameters
     const G = 1;
@@ -16,6 +18,8 @@ function initializeOscillatingField() {
 
     const width = fieldCanvas.width;
     const height = fieldCanvas.height;
+    const graphWidth = graphCanvas.width;
+    const graphHeight = graphCanvas.height;
 
     let time = 0;
     const EValues = [];
@@ -38,28 +42,44 @@ function initializeOscillatingField() {
         return term1 * term2;
     }
 
-
     function drawField(currentTime, currentE) {
-        graphCtx.clearRect(0, 0, width, height);
+        fieldCtx.clearRect(0, 0, width, height);
+        fieldCtx.beginPath();
+        fieldCtx.moveTo(0, height / 2);
+
+        for (let x = 0; x < width; x++) {
+            const t = (time + x / width) * maxTime / width;
+            const E = calculateElectricField(t);
+            const y = height / 2 - E * 10000; // Scale for visibility
+            fieldCtx.lineTo(x, y);
+        }
+
+        fieldCtx.strokeStyle = 'blue';
+        fieldCtx.lineWidth = 2;
+        fieldCtx.stroke();
+
+        // Add current time and field value
+        fieldCtx.font = '16px Arial';
+        fieldCtx.fillStyle = 'black';
+        fieldCtx.fillText(`Time: ${currentTime.toFixed(2)} s`, 10, 20);
+        fieldCtx.fillText(`Field Value: ${currentE.toFixed(3)}`, 10, 40);
+    }
+
+    function drawGraph() {
+        graphCtx.clearRect(0, 0, graphWidth, graphHeight);
 
         graphCtx.beginPath();
-        graphCtx.moveTo(0, height / 2);
+        graphCtx.moveTo(0, graphHeight / 2);
 
         for (let i = 0; i < EValues.length; i++) {
-            const x = (i / EValues.length) * width;
-            const y = height / 2 - EValues[i] * 100; // Scale for visibility
+            const x = (i / EValues.length) * graphWidth;
+            const y = graphHeight / 2 - EValues[i] * 100; // Scale for visibility
             graphCtx.lineTo(x, y);
         }
 
         graphCtx.strokeStyle = 'red';
         graphCtx.lineWidth = 2;
         graphCtx.stroke();
-
-        // Add current time and field value
-        graphCtx.font = '16px Arial';
-        graphCtx.fillStyle = 'black';
-        graphCtx.fillText(`Time: ${currentTime.toFixed(2)} s`, 10, 20);
-        graphCtx.fillText(`Field Value: ${currentE.toFixed(3)}`, 10, 40);
     }
 
     function animate() {
@@ -70,6 +90,7 @@ function initializeOscillatingField() {
         timeValues.push(time);
 
         drawField(time, E);
+        drawGraph();
 
         time += timeStep;
         requestAnimationFrame(animate);
@@ -86,4 +107,4 @@ function initializeOscillatingField() {
 
     restartAnimation();
 }
-initializeOscillatingField();
+initializeOscillatingField()

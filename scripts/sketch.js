@@ -1,5 +1,5 @@
     let a = 0;               // Angle of rotation
-    const offset = Math.PI / 25.0; // Angle offset between boxes
+    const offset = Math.PI / 30.0; // Angle offset between boxes
     const num = 13;          // Number of boxes
     const canvasWidth = 1000;
     const canvasHeight = 500;
@@ -15,12 +15,15 @@
 
       for (let i = 0; i < num; i++) {
         push();
-        fill(i*10)
+        //fill(i*10)
+        //fill(color(random(0,255),random(0,255) , random(0,255)))
+        fill(color(i*(255/num),i*(255/num), i*(255/num)))
         rotateY(a + offset * i);
         rotateX(a / 2 + offset * i);
         ellipse(252, 144, 72, 72);
-        //box(50)
-        polygon(2, 2, 82, 3); // Triangle
+        box(100)
+        //polygon(2, 2, 82, 3); // Triangle
+        //polygon(2, 2, 82, 4); // Triangle
         pop();
       }
 
