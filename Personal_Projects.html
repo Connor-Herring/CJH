@@ -105,15 +105,17 @@
 
             <h5>-Global Happiness Scores-</h5>
             <p>This dataset ranks 155 countries by ther happiness levels. "The happiness scores and rankings use data from the Gallup World Poll. The scores are based on answers to the main life evaluation question asked in the poll". Here is a <a href="https://www.kaggle.com/datasets/unsdsn/world-happiness" target="_blank">link</a> to the dataset.</p>
-            <img src="images/happiness_world.png" style="width:500px;">
-            <img src="images/happiness_health.png" style="width:600px;">
-            <p>I've plotted a sort of happiness heat map (left) and happiness scores vs life expectancy (scaled between 0 and 1) (right).</p>
+            <iframe src="plotly/happiness_regions.html" width="75%" height="500"></iframe>
+
+            <p>I've plotted happiness scores by region (above) and a sort of happiness heat map (below).</p>
+            <iframe src="plotly/happiness_map.html" width="75%" height="500"></iframe>
 
             <h5>-Music Genre Classification-</h5>
             <p>Here is a <a href="https://www.kaggle.com/datasets/insiyeah/musicfeatures" target="_blank">link</a> to the dataset.</p>
-            <img src="images/music_tempo.png" style="width:500px;">
-            <img src="images/music_nn.png" style="width:500px;">
-            <p>Tempo distributions across different music genres (left) and the accuracy of a neural network trained to classify genres (right). It did fairly well with classical music and often mistook rock for metal.</p>
+            <iframe src="plotly/music_tempo.html" width="75%" height="500"></iframe>
+            <p>Tempo distributions across different music genres (above) and the accuracy of a neural network trained to classify genres (below). It did fairly well with classical and pop music, and often mistook rock for metal.</p>
+            <iframe src="plotly/music_nn.html" width="75%" height="500"></iframe>
+            
         </section>
 
         <section id="home">
