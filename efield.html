@@ -49,6 +49,7 @@
         <label>σ (sigma): <input type="number" id="sigma" value="15" step="0.1"></label>
         <label>t₀: <input type="number" id="t0" value="65" step="0.1"></label>
         <label>C: <input type="number" id="C" value="0" step="0.1"></label>
+        <label>maxTime: <input type="number" id="maxTime" value="125" step="0.1"></label>
         <button onclick="restartAnimation()">Restart</button>
     </div>
     <script>
@@ -65,6 +66,7 @@
         const sigmaInput = document.getElementById('sigma');
         const t0Input = document.getElementById('t0');
         const CInput = document.getElementById('C');
+        const maxTimeInput = document.getElementById('maxTime');
 
         const width = fieldCanvas.width;
         const height = fieldCanvas.height;
@@ -74,7 +76,8 @@
         let time = 0;
         const timeStep = 0.05;
         const normalizationTerm = 1; // Placeholder, adjust as needed
-        const maxTime = 125;
+        //const maxTime = 125;
+        const maxTime = parseFloat(maxTimeInput.value);
         const EValues = [];
         const timeValues = [];
 
@@ -111,7 +114,8 @@
 
             for (let x = 0; x < width; x++) {
                 const t = (time + x / width) * maxTime / width;
-                const E = calculateElectricField(t);
+                //const E = calculateElectricField(t);
+                const E = calculateElectricField(currentTime);
                 const y = height / 2 - E * 100; // Scale for visibility
                 fieldCtx.lineTo(x, y);
             }

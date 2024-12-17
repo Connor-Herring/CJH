@@ -58,7 +58,7 @@ function initializeOscillatingField() {
         // Add current time and field value
         graphCtx.font = '16px Arial';
         graphCtx.fillStyle = 'black';
-        graphCtx.fillText(`Time: ${currentTime.toFixed(2)} s`, 10, 20);
+        graphCtx.fillText(`Time: ${currentTime.toFixed(2)} fs`, 10, 20);
         graphCtx.fillText(`Field Value: ${currentE.toFixed(3)}`, 10, 40);
     }
 
