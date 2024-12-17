@@ -76,10 +76,12 @@
         let time = 0;
         const timeStep = 0.05;
         const normalizationTerm = 1; // Placeholder, adjust as needed
-        //const maxTime = 125;
-        const maxTime = parseFloat(maxTimeInput.value);
         const EValues = [];
         const timeValues = [];
+
+        function getMaxTime() {
+            return parseFloat(maxTimeInput.value);
+        }
 
         function gaussianPulse(t, t0, sigma, G, H) {
             const tDiff = t - t0;
@@ -151,7 +153,7 @@
 
         function animate() {
 
-            if (time >= maxTime) return;
+            if (time >= getMaxTime()) return;
 
             const E = calculateElectricField(time);
             EValues.push(E);
