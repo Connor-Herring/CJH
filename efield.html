@@ -16,11 +16,22 @@
             background-color: #f9f9f9;
         }
         .controls {
-            text-align: center;
-            margin-top: 10px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px; /* Space between grid items */
+            max-width: 600px; /* Optional: Control container width */
         }
         .controls label {
             margin: 0 10px;
+        }
+        input[type="number"] {
+            width: 100%; /* Input fills the grid cell */
+            box-sizing: border-box; /* Includes padding and border in width */
+        }
+
+        button {
+            grid-column: span 2; /* Button spans across two columns */
+            justify-self: center;
         }
     </style>
 </head>
@@ -37,6 +48,7 @@
         <label>φ (phi): <input type="number" id="phi" value="0" step="0.1"></label>
         <label>σ (sigma): <input type="number" id="sigma" value="15" step="0.1"></label>
         <label>t₀: <input type="number" id="t0" value="65" step="0.1"></label>
+        <label>C: <input type="number" id="C" value="0" step="0.1"></label>
         <button onclick="restartAnimation()">Restart</button>
     </div>
     <script>
@@ -52,6 +64,7 @@
         const phiInput = document.getElementById('phi');
         const sigmaInput = document.getElementById('sigma');
         const t0Input = document.getElementById('t0');
+        const CInput = document.getElementById('C');
 
         const width = fieldCanvas.width;
         const height = fieldCanvas.height;
@@ -72,7 +85,7 @@
             return gaussian + heaviside;
         }
 
-        function oscillation(t, t0, A, omega, phi, C = 0) {
+        function oscillation(t, t0, A, omega, phi, C) {
             return A * Math.sin(omega * (t - t0) - phi) + C;
         }
 
@@ -84,9 +97,10 @@
             const phi = parseFloat(phiInput.value);
             const sigma = parseFloat(sigmaInput.value);
             const t0 = parseFloat(t0Input.value);
+            const C = parseFloat(CInput.value);
 
             const term1 = gaussianPulse(t, t0, sigma, G, H);
-            const term2 = oscillation(t, t0, A, omega, phi);
+            const term2 = oscillation(t, t0, A, omega, phi, C);
             return term1 * term2;
         }
 
@@ -98,7 +112,7 @@
             for (let x = 0; x < width; x++) {
                 const t = (time + x / width) * maxTime / width;
                 const E = calculateElectricField(t);
-                const y = height / 2 - E * 10000; // Scale for visibility
+                const y = height / 2 - E * 100; // Scale for visibility
                 fieldCtx.lineTo(x, y);
             }
 
